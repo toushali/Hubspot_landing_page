@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Bash(cd /tmp)",
+      "Bash(npx create-next-app@latest hubspot-lp --typescript --tailwind --no-eslint --no-git --app)",
+      "Bash(npm install *)"
+    ]
+  }
+}

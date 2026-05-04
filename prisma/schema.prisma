@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Lead {
+  id            String   @id @default(cuid())
+  fullName      String
+  workEmail     String
+  companyWebsite String
+  hubspotNeed   String?
+  source        String   @default("lp/hire-hubspot-developers")
+  utmSource     String?
+  utmMedium     String?
+  utmCampaign   String?
+  utmTerm       String?
+  utmContent    String?
+  referrer      String?
+  userAgent     String?
+  ipHash       String?
+  createdAt     DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([workEmail])
+}

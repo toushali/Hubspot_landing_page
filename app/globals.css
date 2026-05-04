@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
+@theme {
+  /* Colors — these become bg-brand-teal, text-ink-navy, etc. */
+  --color-brand-teal: #0DCFCF;
+  --color-brand-teal-deep: #08A8A8;
+  --color-brand-teal-soft: #E6FBFB;
+
+  --color-ink-navy: #0A1628;
+  --color-ink-navy-2: #0E1D33;
+  --color-ink-navy-3: #14263F;
+
+  --color-accent-orange: #FF6B35;
+
+  --color-text-primary: #0A1628;
+  --color-text-secondary: #475569;
+  --color-text-on-dark: #F1F5F9;
+  --color-text-on-dark-mut: #94A3B8;
+
+  --color-surface-light: #FFFFFF;
+  --color-surface-soft: #F8FAFC;
+
+  --color-border-light: #E2E8F0;
+  --color-border-dark: rgba(255, 255, 255, 0.08);
+
+  /* Display font sizes — text-display-h1, text-display-h2, etc. */
+  --text-display-h1: 72px;
+  --text-display-h1--line-height: 1.1;
+  --text-display-h1--letter-spacing: -0.02em;
+
+  --text-display-h1-sm: 44px;
+  --text-display-h1-sm--line-height: 1.1;
+  --text-display-h1-sm--letter-spacing: -0.01em;
+
+  --text-display-h2: 48px;
+  --text-display-h2--line-height: 1.2;
+  --text-display-h2--letter-spacing: -0.015em;
+
+  --text-display-h2-sm: 32px;
+  --text-display-h2-sm--line-height: 1.2;
+  --text-display-h2-sm--letter-spacing: -0.01em;
+
+  /* Fonts */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: 'Satoshi', var(--font-inter), system-ui, sans-serif;
+}
+
+/* Base CSS variables for non-Tailwind use (kept for backwards compat in your inline styles) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-teal: #0DCFCF;
+  --brand-teal-deep: #08A8A8;
+  --brand-teal-soft: #E6FBFB;
+  --ink-navy: #0A1628;
+  --ink-navy-2: #0E1D33;
+  --ink-navy-3: #14263F;
+  --accent-orange: #FF6B35;
+  --text-primary: #0A1628;
+  --text-secondary: #475569;
+  --text-on-dark: #F1F5F9;
+  --text-on-dark-mut: #94A3B8;
+  --surface-light: #FFFFFF;
+  --surface-soft: #F8FAFC;
+  --border-light: #E2E8F0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--surface-light);
+  color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+/* Custom utility classes */
+.eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.container-safe {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 80rem;
+}
+
+@media (min-width: 640px) {
+  .container-safe {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-safe {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
